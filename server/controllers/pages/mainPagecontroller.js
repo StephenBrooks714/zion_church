@@ -6,6 +6,13 @@ const homePage = (req, res) => {
     })
 }
 
+const salvationPage = (req, res) => {
+    res.render('inHimWeTrust', {
+        title: 'Come to know Him and be saved'
+    })
+}
+
 module.exports = {
-    homePage
+    homePage,
+    salvationPage,
 }

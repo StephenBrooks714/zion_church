@@ -6,6 +6,7 @@ const admin = require("./middleware/ifAdminUser");
 
 const mainController = require("../controllers/pages/mainPagecontroller");
 router.get('/', cache(2), mainController.homePage);
+router.get("/inHimWeTrust", cache(2), mainController.salvationPage);
 
 const usersController = require("../controllers/users/usersMainController");
 router.get("/register", usersController.registerUser);
