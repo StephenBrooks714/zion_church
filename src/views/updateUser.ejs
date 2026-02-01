@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<%- include('layouts/head') -%>
+<body>
+<header>
+    <%- include('layouts/navBar') -%>
+</header>
+
+<main>
+    <section class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-lg-6 text-center">
+                <h1 class="h3 fw-bold mb-3">
+                    Update User: <%= user.username %>
+                </h1>
+                <form action="/update/user/<%= user.id %>" method="post">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="role" class="form-label">Role</label>
+                            <input type="text" class="form-control" id="role" name="role" value="<%= user.role %>" required>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="<%= user.username %>" required>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="fName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="fName" name="fName" value="<%= user.fName %>" required>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="lName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lName" name="lName" value="<%= user.lName %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">Update User</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- MDB -->
+<%- include('layouts/footer') -%>
+</body>
+</html>

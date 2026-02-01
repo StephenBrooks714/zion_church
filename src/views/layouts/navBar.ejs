@@ -20,9 +20,8 @@
                             <li><a href="/membership">Membership</a></li>
                         </ul>
                     </li>
-                    <li><a href="/#ministries">Ministries</a></li>
                     <li>
-                        <a href="#!">Actions</a>
+                        <a href="#!">Involvement</a>
                         <ul class="nav-dropdown">
                             <li><a href="/calendar">Calendar</a></li>
                             <li><a href="https://subsplash.com/u/-3WNQ3J/give?frequency=once&next_process_date=07/25/2025&fund_id=d0ad038b-9fac-413b-a576-29cbcac9788e" target="_blank">Give</a></li>
@@ -39,11 +38,22 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#!">Users</a>
+                        <% if(!loggedIn) { %>
+                            <a href="#!">Users</a>
+                        <% } else { %>
+                            <a href="#!">Actions</a>
+                        <% } %>
                         <ul class="nav-dropdown">
                             <li><a href="/prayerRequests">Prayer Requests</a></li>
-                            <li><a href="#!">Members Only</a></li>
-                            <li><a href="#!">Register / Login</a></li>
+                            <% if(!loggedIn) { %>
+                                <li><a href="/register">Register</a></li>
+                                <li><a href="/login">User Login</a></li>
+                            <% } else { %>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="#">Profiles</a></li>
+                                <hr>
+                                <li><a href="/logout">Logout</a></li>
+                            <% } %>
                         </ul>
                     </li>
                     <li><a href="/#contact">Donate <i class="fab fa-paypal"></i></a></li>
