@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<%- include('layouts/head') -%>
+<style>
+    .intro-bg {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://static.vecteezy.com/system/resources/thumbnails/011/890/681/small_2x/christ-religion-and-christianity-worship-or-pray-concept-christian-catholic-woman-are-praying-to-god-in-dark-at-church-prayer-person-hand-in-black-background-girl-believe-and-faith-in-jesus-christ-photo.jpg"),
+        no-repeat center center fixed;
+        -webkit-background-size: cover;
+        background-size: cover;
+        height: 60vh;
+    }
+</style>
+<body>
+<header class="intro-bg">
+    <%- include('layouts/navBar') -%>
+    <section class="container">
+        <div class="row justify-content-center text-white align-items-center"
+             style="height: 70vh;">
+            <div class="col-lg-12 text-center">
+                <h1 class="text-info display-2">Prayer Request</h1>
+            </div>
+        </div>
+    </section>
+</header>
+
+<main>
+    <section class="container my-5 py-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-12 text-center"></div>
+        </div>
+    </section>
+</main>
+
+<!-- MDB -->
+<%- include('layouts/footer') -%>
+</body>
+</html>
