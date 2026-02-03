@@ -7,6 +7,15 @@ const admin = require("./middleware/ifAdminUser");
 const mainController = require("../controllers/pages/mainPagecontroller");
 router.get('/', cache(2), mainController.homePage);
 router.get("/inHimWeTrust", cache(2), mainController.salvationPage);
+router.get("/staff", cache(2), mainController.staffPage);
+router.get("/missionAndVision", cache(2), mainController.missionVisionPage);
+router.get("/privacyPolicy", cache(2), mainController.privacyPage);
+
+const galleryController = require("../controllers/Gallery/galleryController");
+router.get("/newGallery", auth, galleryController.newProjectPage)
+router.post("/store/images", galleryController.storeProject)
+router.get("/delete/images", auth, galleryController.deleteProjectInfo)
+router.get("/gallery", galleryController.projectsPage)
 
 const usersController = require("../controllers/users/usersMainController");
 router.get("/register", usersController.registerUser);
@@ -19,9 +28,10 @@ router.get("/updateUser/:id", auth, usersController.updateUser);
 router.post("/update/user/:id", auth, usersController.postUpdatedUser);
 
 const adminController = require("../controllers/admin/adminController");
-router.get("/admin", cache(2), admin, adminController.adminPage);
+router.get("/admin", cache(2), auth, adminController.adminPage);
 
 const formsController = require("../controllers/forms/formsController");
+const {missionVisionPage} = require("../controllers/pages/mainPagecontroller");
 router.get("/prayerRequest", formsController.prayerRequestPage);
 
 module.exports = router;
