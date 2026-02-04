@@ -30,4 +30,7 @@
   <url>
     <loc>http://localhost:8080/login</loc>
   </url>
+  <url>
+    <loc>http://localhost:8080/donations</loc>
+  </url>
 </urlset>

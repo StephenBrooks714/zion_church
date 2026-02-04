@@ -31,10 +31,17 @@ const privacyPage = (req, res) => {
     })
 }
 
+const donationsPage = (req, res) => {
+    res.render('donations', {
+        title: 'Donations Page'
+    })
+}
+
 module.exports = {
     homePage,
     salvationPage,
     staffPage,
     missionVisionPage,
     privacyPage,
+    donationsPage,
 }

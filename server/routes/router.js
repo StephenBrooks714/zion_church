@@ -10,6 +10,7 @@ router.get("/inHimWeTrust", cache(2), mainController.salvationPage);
 router.get("/staff", cache(2), mainController.staffPage);
 router.get("/missionAndVision", cache(2), mainController.missionVisionPage);
 router.get("/privacyPolicy", cache(2), mainController.privacyPage);
+router.get("/donations", cache(2), mainController.donationsPage);
 
 const galleryController = require("../controllers/Gallery/galleryController");
 router.get("/newGallery", auth, galleryController.newProjectPage)
@@ -31,7 +32,7 @@ const adminController = require("../controllers/admin/adminController");
 router.get("/admin", cache(2), auth, adminController.adminPage);
 
 const formsController = require("../controllers/forms/formsController");
-const {missionVisionPage} = require("../controllers/pages/mainPagecontroller");
+const {missionVisionPage, donationsPage} = require("../controllers/pages/mainPagecontroller");
 router.get("/prayerRequest", formsController.prayerRequestPage);
 
 module.exports = router;
