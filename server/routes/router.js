@@ -6,6 +6,7 @@ const admin = require("./middleware/ifAdminUser");
 
 const mainController = require("../controllers/pages/mainPagecontroller");
 router.get('/', cache(2), mainController.homePage);
+router.get('/about', cache(2), mainController.aboutPage);
 router.get("/inHimWeTrust", cache(2), mainController.salvationPage);
 router.get("/staff", cache(2), mainController.staffPage);
 router.get("/missionAndVision", cache(2), mainController.missionVisionPage);

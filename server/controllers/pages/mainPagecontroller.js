@@ -37,6 +37,12 @@ const donationsPage = (req, res) => {
     })
 }
 
+const aboutPage = (req, res) => {
+    res.render('about', {
+        title: 'About Our Beginning'
+    })
+}
+
 module.exports = {
     homePage,
     salvationPage,
@@ -44,4 +50,5 @@ module.exports = {
     missionVisionPage,
     privacyPage,
     donationsPage,
+    aboutPage,
 }

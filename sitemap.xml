@@ -7,6 +7,9 @@
     <loc>http://localhost:8080/staff</loc>
   </url>
   <url>
+    <loc>http://localhost:8080/about</loc>
+  </url>
+  <url>
     <loc>http://localhost:8080/missionAndVision</loc>
   </url>
   <url>
