@@ -33,7 +33,12 @@ const adminController = require("../controllers/admin/adminController");
 router.get("/admin", cache(2), auth, adminController.adminPage);
 
 const formsController = require("../controllers/forms/formsController");
-const {missionVisionPage, donationsPage} = require("../controllers/pages/mainPagecontroller");
+const eventsController = require("../controllers/forms/formsController");
 router.get("/prayerRequest", formsController.prayerRequestPage);
+// events data
+router.get("/newEvent", formsController.newEventPage)
+router.post("/store/event", formsController.storeEvent);
+router.get("/events", eventsController.eventsPage);
+router.get("/delete/event/:id", formsController.deleteEvent);
 
 module.exports = router;
