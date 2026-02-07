@@ -1,9 +1,11 @@
 //
+const FoodPantryData = require("../models/FoodPantry");
 
-
-const homePage = (req, res) => {
+const homePage = async (req, res) => {
+    const foodItem = await FoodPantryData.find({}).sort({_id: -1});
     res.render('index', {
-        title: 'home page for the zion church'
+        title: 'home page for the zion church',
+        foodItem
     })
 }
 

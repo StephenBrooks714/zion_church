@@ -1,26 +1,14 @@
+<% if(foodItem != "") { %>
 <article class="row justify-content-lg-start justify-content-center text-lg-start mb-5 pb-2">
-    <div class="col-lg-4 mb-lg-0 mb-3">
-        <p class="h5 mb-2 text-info fw-bold">Event Title</p>
-        <hr class="w-25">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aut culpa delectus dicta enim error.
-        </p>
-        <a href="" class="btn btn-outline-primary rounded-pill">Read More</a>
-    </div>
-    <div class="col-lg-4 mb-lg-0 mb-3">
-        <p class="h5 mb-2 text-info fw-bold">Event Title</p>
-        <hr class="w-25">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aut culpa delectus dicta enim error.
-        </p>
-        <a href="" class="btn btn-outline-primary rounded-pill">Read More</a>
-    </div>
-    <div class="col-lg-4 mb-lg-0 mb-3">
-        <p class="h5 mb-2 text-info fw-bold">Event Title</p>
-        <hr class="w-25">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aut culpa delectus dicta enim error.
-        </p>
-        <a href="" class="btn btn-outline-primary rounded-pill">Read More</a>
-    </div>
+    <% for(i=0; i < foodItem.length; i++) {%>
+        <div class="col-lg-6 mb-lg-0 mb-3">
+            <p class="h5 mb-2 text-info fw-bold"><%= foodItem[i].title %></p>
+            <hr class="w-25">
+            <p>
+                <%= foodItem[i].description %>
+            </p>
+            <a href="/foodPantry" class="btn btn-outline-primary rounded-pill">Read More</a>
+        </div>
+    <% } %>
 </article>
+<% } %>

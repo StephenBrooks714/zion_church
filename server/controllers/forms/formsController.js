@@ -1,6 +1,6 @@
 // nodemailer
-
-// database
+////////////////////////////////////////////////////////////////
+// event database
 const EventAction = require("../models/Events");
 
 const newEventPage = (req, res) => {
@@ -30,6 +30,7 @@ const eventsPage = async (req, res) => {
     })
 }
 
+/////////////////////////////////////////////////////////////////////
 const prayerRequestPage = async(req, res) => {
     res.render("prayerRequest", {
         title: "Submit a prayer request"

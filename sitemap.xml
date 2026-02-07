@@ -25,6 +25,9 @@
     <loc>http://localhost:8080/inHimWeTrust</loc>
   </url>
   <url>
+    <loc>http://localhost:8080/foodPantry</loc>
+  </url>
+  <url>
     <loc>http://localhost:8080/prayerRequest</loc>
   </url>
   <url>

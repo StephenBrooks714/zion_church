@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/head') -%>
+
+<body>
+<header>
+    <%- include('layouts/navBar') -%>
+</header>
+<div class="container" style="margin-top: 150px; margin-bottom: 70px;">
+    <div class="row justify-content-center flex-center text-center">
+        <div class="col-md-8">
+            <h1 class="mb-4">Create A New Event</h1>
+            <form action="/store/food" enctype="multipart/form-data" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control mb-2" id="title">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="startTime" class="form-label">Start Time</label>
+                        <input type="text" name="startTime" class="form-control mb-2" id="startTime">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="endTime" class="form-label">End Time</label>
+                        <input type="text" name="endTime" class="form-control mb-2" id="endTime">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="startDate" class="form-label">From Date</label>
+                        <input type="date" name="startDate" class="form-control mb-2" id="startDate">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="endDate" class="form-label">To Date</label>
+                        <input type="date" name="endDate" class="form-control mb-2" id="endDate">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="location" class="form-control mb-2" id="location">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="url" class="form-label">Url Link</label>
+                        <input type="url" name="url" class="form-control mb-2" id="url">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="imageUrl" class="form-label">Image Link</label>
+                        <input type="url" name="imageUrl" class="form-control mb-2" id="imageUrl">
+                    </div>
+<!--                    -->
+                    <div class="col-md-6 mb-2">
+                        <label for="contactName" class="form-label">Contact Person</label>
+                        <input type="text" name="contactName" class="form-control mb-2" id="contactName">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="contactEmail" class="form-label">Contact Email</label>
+                        <input type="email" name="contactEmail" class="form-control mb-2" id="contactEmail">
+                    </div>
+<!--                    -->
+                    <div class="col-md-12 mb-2">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="description" id="description" class="form-control mb-2" rows="2"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">submit event</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('layouts/footer') -%>
+</body>
+</html>

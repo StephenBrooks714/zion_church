@@ -33,12 +33,17 @@ const adminController = require("../controllers/admin/adminController");
 router.get("/admin", cache(2), auth, adminController.adminPage);
 
 const formsController = require("../controllers/forms/formsController");
-const eventsController = require("../controllers/forms/formsController");
 router.get("/prayerRequest", formsController.prayerRequestPage);
+// food pantry
+const foodController = require("../controllers/forms/foodPantryController");
+router.get("/newFoodPantryItem", auth, foodController.newFoodPantryItemPage);
+router.post("/store/food", auth, foodController.storeFoodPantryItem);
+router.get("/delete/food/:id", auth, foodController.deleteFoodItem);
+router.get("/foodPantry", cache(2), foodController.foodPantryPage);
 // events data
 router.get("/newEvent", formsController.newEventPage)
 router.post("/store/event", formsController.storeEvent);
-router.get("/events", eventsController.eventsPage);
+router.get("/events", cache(2), formsController.eventsPage);
 router.get("/delete/event/:id", formsController.deleteEvent);
 
 module.exports = router;
