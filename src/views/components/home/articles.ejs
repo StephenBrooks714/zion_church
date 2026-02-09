@@ -1,11 +1,11 @@
 <% if(foodItem != "") { %>
 <article class="row justify-content-lg-start justify-content-center text-lg-start mb-5 pb-2">
     <% for(i=0; i < foodItem.length; i++) {%>
-        <div class="col-lg-6 mb-lg-0 mb-3">
+        <div class="col-lg-4 mb-lg-0 mb-3">
             <p class="h5 mb-2 text-info fw-bold"><%= foodItem[i].title %></p>
             <hr class="w-25">
             <p>
-                <%= foodItem[i].description %>
+                <%= foodItem[i].description.substring(0, 210) %> . . .
             </p>
             <a href="/foodPantry" class="btn btn-outline-primary rounded-pill">Read More</a>
         </div>

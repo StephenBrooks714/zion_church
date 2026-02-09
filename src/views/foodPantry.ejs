@@ -10,7 +10,7 @@
     <section class="container" style="margin-top: 140px; margin-bottom: 70px;">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 mb-4">
-                <h1>AME Food Pantry Page</h1>
+                <h1 class="text-info fw-bold display-4">AME Food <span class="fw-light">Pantry</span> Page</h1>
             </div>
             <% if(foodItem != "") { %>
 
@@ -22,7 +22,7 @@
                             </h4>
                             <small>Posted On: <%= foodItem[i].datePosted.toLocaleString() %></small>
 
-                            <img src="<%= foodItem[i].imageUrl %>" class="img-fluid w-100 h-100" alt="<%= foodItem[i].title %>">
+                            <img src="<%= foodItem[i].imageUrl %>" class="img-fluid w-100" alt="<%= foodItem[i].title %>">
                         </div>
                         <div class="col-md-8 mb-3">
                             <p>
@@ -43,6 +43,7 @@
                             <% } %>
                         </div>
                     </div>
+                    <hr class="my-3">
                 <% } %>
             <% } else { %>
                 <p class="lead fw-bold">There are no events posted yet.</p>
