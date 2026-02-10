@@ -21,6 +21,12 @@ const staffPage = (req, res) => {
     })
 }
 
+const pastorPage = (req, res) => {
+    res.render('pastor', {
+        title: 'Meet our PAstor'
+    })
+}
+
 const missionVisionPage = (req, res) => {
     res.render('missionAndVision', {
         title: 'Our Mission And Vision'
@@ -53,4 +59,5 @@ module.exports = {
     privacyPage,
     donationsPage,
     aboutPage,
+    pastorPage
 }

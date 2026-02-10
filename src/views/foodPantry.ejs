@@ -4,14 +4,53 @@
 <body>
 <header>
     <%- include('layouts/navBar') -%>
+    <!-- Background image -->
+    <div
+            class="p-5 text-center bg-image"
+            style="
+              background-image: url('https://content.energage.com/company-images/SE89389/SE89389_photo_05_orig.jpg');
+              height: 500px;
+              "
+    ></div>
+    <!-- Background image -->
+
+    <div class="container">
+        <div
+                class="card mx-4 mx-md-5 text-center shadow-5-strong"
+                style="
+                margin-top: -170px;
+                background: hsla(0, 0%, 100%, 0.7);
+                backdrop-filter: blur(30px);
+                "
+        >
+            <div class="card-body px-4 py-5 px-lg-3">
+                <h1 class="display-3 fw-bold ls-tight mb-4">
+                    AME Zion Church <br />
+                    <span class="text-primary">Food Pantry</span>
+                </h1>
+
+                <a
+                        class="btn btn-primary py-3 px-5 mb-2 mb-md-0 me-md-2" data-mdb-ripple-init
+                        href="https://www.zeffy.com/home/ticketing-system-fundraising-events?bing_cam_id=569692523&msclkid=e283167dc0251bcb5f827ff6b66ce0e4&utm_source=bing&utm_medium=cpc&utm_campaign=BING%20-%20Generic%20(US)&utm_term=ticketing%20software%20for%20nonprofits&utm_content=Ticketing%20(US)&Event"
+                        target="_blank"
+                        role="button"
+                >Get Food</a
+                >
+                <a
+                        class="btn btn-link py-3 px-5 mb-2 mb-md-0" data-mdb-ripple-init
+                        data-ripple-color="primary"
+                        href="#"
+                        role="button"
+                >Learn more</a
+                >
+            </div>
+        </div>
+    </div>
 </header>
 
 <main>
-    <section class="container" style="margin-top: 140px; margin-bottom: 70px;">
+    <section class="container" style="margin-top: 70px; margin-bottom: 70px;">
         <div class="row justify-content-center align-items-center">
-            <div class="col-12 mb-4">
-                <h1 class="text-info fw-bold display-4">AME Food <span class="fw-light">Pantry</span> Page</h1>
-            </div>
             <% if(foodItem != "") { %>
 
                 <% for(i=0; i < foodItem.length; i++)  { %>

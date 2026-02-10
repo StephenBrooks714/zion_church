@@ -4,6 +4,9 @@
     <loc>http://localhost:8080/</loc>
   </url>
   <url>
+    <loc>http://localhost:8080/pastor</loc>
+  </url>
+  <url>
     <loc>http://localhost:8080/staff</loc>
   </url>
   <url>
