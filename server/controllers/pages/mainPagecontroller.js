@@ -51,6 +51,12 @@ const aboutPage = (req, res) => {
     })
 }
 
+const ministryPage = (req, res) => {
+    res.render('ministry', {
+        title: 'AME Ministry Board Page'
+    })
+}
+
 module.exports = {
     homePage,
     salvationPage,
@@ -59,5 +65,6 @@ module.exports = {
     privacyPage,
     donationsPage,
     aboutPage,
-    pastorPage
+    pastorPage,
+    ministryPage
 }

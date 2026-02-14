@@ -13,6 +13,7 @@ router.get("/staff", cache(2), mainController.staffPage);
 router.get("/missionAndVision", cache(2), mainController.missionVisionPage);
 router.get("/privacyPolicy", cache(2), mainController.privacyPage);
 router.get("/donations", cache(2), mainController.donationsPage);
+router.get("/ministry", cache(2), mainController.ministryPage);
 
 const galleryController = require("../controllers/Gallery/galleryController");
 router.get("/newGallery", auth, galleryController.newProjectPage)
@@ -37,6 +38,7 @@ const formsController = require("../controllers/forms/formsController");
 router.get("/prayerRequest", formsController.prayerRequestPage);
 // food pantry
 const foodController = require("../controllers/forms/foodPantryController");
+const maincontroller = require("../controllers/pages/mainPagecontroller");
 router.get("/newFoodPantryItem", auth, foodController.newFoodPantryItemPage);
 router.post("/store/food", auth, foodController.storeFoodPantryItem);
 router.get("/delete/food/:id", auth, foodController.deleteFoodItem);
