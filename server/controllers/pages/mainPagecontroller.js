@@ -1,5 +1,6 @@
 //
 const FoodPantryData = require("../models/FoodPantry");
+const EventCalendar = require("../models/Calendar");
 
 const homePage = async (req, res) => {
     const foodItem = await FoodPantryData.find({}).sort({_id: -1});
@@ -57,8 +58,17 @@ const ministryPage = (req, res) => {
     })
 }
 
+const calendarPage = async (req, res) => {
+    const calendar = await EventCalendar.find({}).sort({_id: -1});
+    res.render('calendar', {
+        title: 'Calendar Page',
+        calendar
+    })
+}
+
 module.exports = {
     homePage,
+    calendarPage,
     salvationPage,
     staffPage,
     missionVisionPage,

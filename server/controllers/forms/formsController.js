@@ -2,6 +2,7 @@
 ////////////////////////////////////////////////////////////////
 // event database
 const EventAction = require("../models/Events");
+const CalendarEvents = require("../models/Calendar");
 
 const newEventPage = (req, res) => {
     res.render("newEvent", {
@@ -37,10 +38,25 @@ const prayerRequestPage = async(req, res) => {
     })
 }
 
+const storeCalendarEvent = async (req, res) => {
+    await CalendarEvents.create({
+        ...req.body,
+        userid: req.session.userId
+    })
+    res.redirect('/calendar')
+}
+
+const deleteCalendarEvent = async (req, res) => {
+    await CalendarEvents.findByIdAndDelete(req.params.id)
+    res.redirect('/calendar')
+}
+
 module.exports = {
     prayerRequestPage,
     newEventPage,
     storeEvent,
     deleteEvent,
-    eventsPage
+    eventsPage,
+    storeCalendarEvent,
+    deleteCalendarEvent
 }

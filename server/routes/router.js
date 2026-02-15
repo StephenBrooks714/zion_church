@@ -14,6 +14,7 @@ router.get("/missionAndVision", cache(2), mainController.missionVisionPage);
 router.get("/privacyPolicy", cache(2), mainController.privacyPage);
 router.get("/donations", cache(2), mainController.donationsPage);
 router.get("/ministry", cache(2), mainController.ministryPage);
+router.get("/calendar", cache(2), mainController.calendarPage);
 
 const galleryController = require("../controllers/Gallery/galleryController");
 router.get("/newGallery", auth, galleryController.newProjectPage)
@@ -36,6 +37,8 @@ router.get("/admin", cache(2), auth, adminController.adminPage);
 
 const formsController = require("../controllers/forms/formsController");
 router.get("/prayerRequest", formsController.prayerRequestPage);
+router.post("/post/event", formsController.storeCalendarEvent);
+router.get("/delete/calendarEvent/:id", formsController.deleteCalendarEvent);
 // food pantry
 const foodController = require("../controllers/forms/foodPantryController");
 const maincontroller = require("../controllers/pages/mainPagecontroller");

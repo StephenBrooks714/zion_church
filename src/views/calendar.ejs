@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<%- include('layouts/head') -%>
+<body>
+<header class="mb-10">
+    <%- include('layouts/navBar') -%>
+</header>
+
+<main>
+    <section class="container mb-3">
+        <div class="row">
+            <div class="col-12 mb-6">
+                <div class="row">
+                    <div class="col-md-7 mb-lg-0 mb-3">
+                        <h1 class="display-2">Zion Church Calendar</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda dolore dolorem error exercitationem explicabo hic in, incidunt inventore ipsa laboriosam minima nisi omnis pariatur quod repellendus, sit tempora vero.
+                        </p>
+                        <% if(loggedIn) { %>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
+                                Create An Event
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Calendar Events</h5>
+                                            <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form action="/post/event" method="POST" enctype="multipart/form-data">
+                                            <div class="modal-body">
+                                                <div>
+                                                    <h3>Add Event</h3>
+                                                    <input type="date" class="form-control mb-2" name="eventDate">
+                                                    <input type="text" name="eventTitle"
+                                                           class="form-control mb-2"
+                                                           placeholder="Event Title">
+                                                    <textarea name="eventDescription"
+                                                              placeholder="Event Description"
+                                                              class="form-control mb-2" rows="5">
+                                            </textarea>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <% } %>
+                    </div>
+                    <div class="col-md-5 mb-lg-0">
+                        <img src="/assets/calendar.png" class="img-fluid" alt="calendar image">
+                    </div>
+                </div>
+            </div>
+            <% if(calendar != "") { %>
+                <% for(i=0; i<calendar.length; i++) { %>
+                    <div class="col-md-4 mb-lg-0 mb-3">
+                        <div class="card">
+                            <h4 class="card-header"><%= calendar[i].eventTitle %>
+                                <a href="/delete/calendarEvent/<%= calendar[i]._id %>" class="btn btn-floating btn-outline-warning">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </h4>
+                            <div class="card-body">
+                                <p class="card-text"><%= calendar[i].eventDescription %></p>
+                                <p class="card-footer"><%= calendar[i].eventDate %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <% } else { %>
+                    <div class="col-12 text-center">
+                        <h5>There Are No Events Posted Yet, Please Check Back Later.</h5>
+                    </div>
+                <% } %>
+            <div class="col-12 mt-4">
+                <%- include("components/socialmedia-share") -%>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script type="text/javascript" src="/calendar.js"></script>
+<!-- MDB -->
+<%- include('layouts/footer') -%>
+</body>
+</html>
