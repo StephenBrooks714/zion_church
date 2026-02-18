@@ -18,7 +18,78 @@
         <div class="row justify-content-center text-white align-items-center"
              style="height: 70vh;">
             <div class="col-lg-12 text-center">
-                <h1 class="text-info display-2">Prayer Request</h1>
+                <h1 class="text-info display-2 mb-3">Prayer Request</h1>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
+                    Upload Prayer
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Upload Prayer</h5>
+                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/upload/request" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-lg-0 mb-4">
+                                            <!-- Name input -->
+                                            <div class="form-outline mb-4" data-mdb-input-init>
+                                                <input type="text" id="form4Example1" name="name" required class="form-control" />
+                                                <label class="form-label" for="form4Example1">Your Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-lg-0 mb-4">
+                                            <!-- Email input -->
+                                            <div class="form-outline mb-4" data-mdb-input-init>
+                                                <input type="email" id="form4Example2" name="email" required class="form-control" />
+                                                <label class="form-label" for="form4Example2"
+                                                >Your Email</label
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-lg-0 mb-4">
+                                            <!-- Name input -->
+                                            <div class="form-outline mb-4" data-mdb-input-init>
+                                                <input type="text" id="personsName" required name="theirName" class="form-control" />
+                                                <label class="form-label" for="personsName">Their Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-lg-0 mb-4">
+                                            <!-- Email input -->
+                                            <div class="form-outline mb-4" data-mdb-input-init>
+                                                <input type="text" id="requestType" required name="requestType" class="form-control" />
+                                                <label class="form-label" for="requestType"
+                                                >Request Type</label
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <!-- Message input -->
+                                            <div class="form-outline mb-4" data-mdb-input-init>
+                                <textarea
+                                        class="form-control"
+                                        id="form4Example3"
+                                        required
+                                        name="details"
+                                        rows="7"
+                                ></textarea>
+                                                <label class="form-label" for="form4Example3">More Details About This</label>
+                                            </div>
+                                            <!-- Submit button -->
+                                            <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
+                                                Share It Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -26,101 +97,36 @@
 
 <main>
     <section class="container my-5 py-5">
-        <div class="row justify-content-center flex-row-reverse align-items-center mb-6">
-            <div class="col-lg-5 mb-lg-0 mb-3">
-                <img src="/assets/hands.png"
-                     class="img-fluid w-100"
-                     alt="request">
-            </div>
-            <div class="col-lg-7 text-md-start text-center">
-                <form action="/upload/prayer" method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-6 mb-lg-0 mb-4">
-                            <!-- Name input -->
-                            <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="text" id="form4Example1" name="name" class="form-control" />
-                                <label class="form-label" for="form4Example1">Your Name</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-lg-0 mb-4">
-                            <!-- Email input -->
-                            <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="email" id="form4Example2" name="email" class="form-control" />
-                                <label class="form-label" for="form4Example2"
-                                >Your Email</label
-                                >
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-lg-0 mb-4">
-                            <!-- Name input -->
-                            <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="text" id="personsName" name="theirName" class="form-control" />
-                                <label class="form-label" for="personsName">Their Name</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-lg-0 mb-4">
-                            <!-- Email input -->
-                            <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="text" id="requestType" name="requestType" class="form-control" />
-                                <label class="form-label" for="requestType"
-                                >Request Type</label
-                                >
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <!-- Message input -->
-                            <div class="form-outline mb-4" data-mdb-input-init>
-                                <textarea
-                                        class="form-control"
-                                        id="form4Example3"
-                                        name="details"
-                                        rows="7"
-                                ></textarea>
-                                <label class="form-label" for="form4Example3">More Details About This</label>
-                            </div>
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
-                                Share It Now
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row justify-content-md-start justify-content-center text-md-start text-center">
-            <% for(i=0; i<prayers.length; i++) { %>
-                <div class="col-lg-3 col-md-6 mb-lg-0 mb-3">
-                    <p class="text-muted">
-                        <strong>Request Type:</strong> <%= prayers[i].requestType %> <br>
-                        <strong>Request From:</strong> <%= prayers[i].name %>
-                    </p>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
-                        Read Request
-                    </button>
+        <div class="row justify-content-center text-md-start text-center">
+            <% if(prayers != "") { %>
+                <% for(i=0; i<prayers.length; i++) { %>
+                    <div class="col-md-6 mb-lg-0 mb-3">
+                        <div class="card p-2">
+                            <p class="text-muted">
+                                <strong>Request Type:</strong> <%= prayers[i].requestType %> <br>
+                                <strong>Request From:</strong> <%= prayers[i].name %>
+                            </p>
+                            <h4>For <span class="fw-bold"><%= prayers[i].theirName %></span>
+                                <% if(loggedIn) { %>
+                                    <a href="/delete/prayer/<%= prayers[i]._id %>"
+                                       class="text-danger btn-floating">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                <% } %>
+                            </h4>
+                            <%= prayers[i].details %>
+                            <br>
+                            Contact Requestor At: <email><a href="mailto:<%= prayers[i].email %>"><%= prayers[i].email %></a></email>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Pray For <%= prayers[i].theirName %></h5>
-                                    <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <%= prayers[i].details %>
-                                    <br><br>
-                                    Contact Requestor At: <email><a href="mailto:<%= prayers[i].email %>"><%= prayers[i].email %></a></email>
-                                    <br><br>
-                                    <i>Posted On:</i> <%= prayers[i].datePosted.toString() %>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                </div>
-                            </div>
+                            <i>Posted On:</i> <%= prayers[i].datePosted.toString() %>
+                            <!-- Button trigger modal -->
                         </div>
                     </div>
-                </div>
+                <% } %>
+            <% } else { %>
+               <div class="col-lg-8 text-center">
+                   <h3>There are no prayer request, be first the first to upload for all to see.</h3>
+               </div>
             <% } %>
         </div>
     </section>
