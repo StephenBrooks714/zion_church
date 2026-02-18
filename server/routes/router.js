@@ -37,11 +37,12 @@ router.get("/admin", cache(2), auth, adminController.adminPage);
 
 const formsController = require("../controllers/forms/formsController");
 router.get("/prayerRequest", formsController.prayerRequestPage);
+router.post("/upload/prayer", formsController.storePrayerRequest);
+router.get("/delete/prayer/:id", formsController.deletePrayerRequest);
 router.post("/post/event", formsController.storeCalendarEvent);
 router.get("/delete/calendarEvent/:id", formsController.deleteCalendarEvent);
 // food pantry
 const foodController = require("../controllers/forms/foodPantryController");
-const maincontroller = require("../controllers/pages/mainPagecontroller");
 router.get("/newFoodPantryItem", auth, foodController.newFoodPantryItemPage);
 router.post("/store/food", auth, foodController.storeFoodPantryItem);
 router.get("/delete/food/:id", auth, foodController.deleteFoodItem);

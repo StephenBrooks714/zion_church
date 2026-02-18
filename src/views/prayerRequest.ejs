@@ -28,36 +28,24 @@
     <section class="container my-5 py-5">
         <div class="row justify-content-center flex-row-reverse align-items-center mb-6">
             <div class="col-lg-5 mb-lg-0 mb-3">
-                <h2 class="fw-bold mb-1 h1">Pray For Us:</h2>
-                <p class="text-muted mb-1">
-                    Most recent prayer post.
-                </p>
-                <div class="card">
-                    <p class="card-header">Their Name</p>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <strong>Request Type</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem earum laboriosam laudantium libero necessitatibus numquam officia porro, quos sint, sit tenetur vitae voluptatibus. Aliquam nostrum quia quo sequi soluta.
-                        </p>
-                    </div>
-                    <p class="card-footer">
-                        Posted On: 01/30/2026, <u>Posted By: User</u>
-                    </p>
-                </div>
+                <img src="/assets/hands.png"
+                     class="img-fluid w-100"
+                     alt="request">
             </div>
             <div class="col-lg-7 text-md-start text-center">
-                <form>
+                <form action="/upload/prayer" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6 mb-lg-0 mb-4">
                             <!-- Name input -->
                             <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="text" id="form4Example1" class="form-control" />
+                                <input type="text" id="form4Example1" name="name" class="form-control" />
                                 <label class="form-label" for="form4Example1">Your Name</label>
                             </div>
                         </div>
                         <div class="col-md-6 mb-lg-0 mb-4">
                             <!-- Email input -->
                             <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="email" id="form4Example2" class="form-control" />
+                                <input type="email" id="form4Example2" name="email" class="form-control" />
                                 <label class="form-label" for="form4Example2"
                                 >Your Email</label
                                 >
@@ -66,14 +54,14 @@
                         <div class="col-md-6 mb-lg-0 mb-4">
                             <!-- Name input -->
                             <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="text" id="personsName" class="form-control" />
+                                <input type="text" id="personsName" name="theirName" class="form-control" />
                                 <label class="form-label" for="personsName">Their Name</label>
                             </div>
                         </div>
                         <div class="col-md-6 mb-lg-0 mb-4">
                             <!-- Email input -->
                             <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="text" id="requestType" class="form-control" />
+                                <input type="text" id="requestType" name="requestType" class="form-control" />
                                 <label class="form-label" for="requestType"
                                 >Request Type</label
                                 >
@@ -85,6 +73,7 @@
                                 <textarea
                                         class="form-control"
                                         id="form4Example3"
+                                        name="details"
                                         rows="7"
                                 ></textarea>
                                 <label class="form-label" for="form4Example3">More Details About This</label>
@@ -98,123 +87,41 @@
                 </form>
             </div>
         </div>
-        <div class="row justify-content-center text-md-start text-center">
-            <div class="col-lg-3 col-md-6 mb-lg-0 mb-3">
-                <p class="text-muted">
-                    <strong>Request Type</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . .
-                </p>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
-                    Read Request
-                </button>
+        <div class="row justify-content-md-start justify-content-center text-md-start text-center">
+            <% for(i=0; i<prayers.length; i++) { %>
+                <div class="col-lg-3 col-md-6 mb-lg-0 mb-3">
+                    <p class="text-muted">
+                        <strong>Request Type:</strong> <%= prayers[i].requestType %> <br>
+                        <strong>Request From:</strong> <%= prayers[i].name %>
+                    </p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
+                        Read Request
+                    </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum cupiditate debitis dolorem ea earum et, odit officia porro praesentium quasi quidem repellat reprehenderit sint sit vel, voluptatem. Aut, vitae.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequuntur corporis cum quasi sint. Assumenda cupiditate dolorum eum illum iusto nemo porro provident totam, voluptas voluptatibus. Corporis dolores id numquam!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Pray For <%= prayers[i].theirName %></h5>
+                                    <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <%= prayers[i].details %>
+                                    <br><br>
+                                    Contact Requestor At: <email><a href="mailto:<%= prayers[i].email %>"><%= prayers[i].email %></a></email>
+                                    <br><br>
+                                    <i>Posted On:</i> <%= prayers[i].datePosted.toString() %>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-lg-0 mb-3">
-                <p class="text-muted">
-                    <strong>Request Type</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . .
-                </p>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
-                    Read Request
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum cupiditate debitis dolorem ea earum et, odit officia porro praesentium quasi quidem repellat reprehenderit sint sit vel, voluptatem. Aut, vitae.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequuntur corporis cum quasi sint. Assumenda cupiditate dolorum eum illum iusto nemo porro provident totam, voluptas voluptatibus. Corporis dolores id numquam!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-lg-0 mb-3">
-                <p class="text-muted">
-                    <strong>Request Type</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . .
-                </p>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
-                    Read Request
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum cupiditate debitis dolorem ea earum et, odit officia porro praesentium quasi quidem repellat reprehenderit sint sit vel, voluptatem. Aut, vitae.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequuntur corporis cum quasi sint. Assumenda cupiditate dolorum eum illum iusto nemo porro provident totam, voluptas voluptatibus. Corporis dolores id numquam!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-lg-0 mb-3">
-                <p class="text-muted">
-                    <strong>Request Type</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . .
-                </p>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
-                    Read Request
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum cupiditate debitis dolorem ea earum et, odit officia porro praesentium quasi quidem repellat reprehenderit sint sit vel, voluptatem. Aut, vitae.
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequuntur corporis cum quasi sint. Assumenda cupiditate dolorum eum illum iusto nemo porro provident totam, voluptas voluptatibus. Corporis dolores id numquam!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <% } %>
         </div>
     </section>
 </main>
