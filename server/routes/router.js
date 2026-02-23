@@ -23,7 +23,7 @@ router.get("/delete/images", auth, galleryController.deleteProjectInfo)
 router.get("/gallery", galleryController.projectsPage)
 
 const usersController = require("../controllers/users/usersMainController");
-router.get("/register", usersController.registerUser);
+router.get("/register", auth, usersController.registerUser);
 router.post("/register", usersController.storeUser);
 router.get("/login", usersController.loginPage);
 router.post("/login/user", usersController.loginUserAction);
@@ -44,9 +44,9 @@ router.get("/delete/calendarEvent/:id", formsController.deleteCalendarEvent);
 router.get("/newPrayer", auth, formsController.newPrayerUpload);
 router.post("/upload/prayer", formsController.storePrayerUpload);
 router.get("/delete/prayer/:id", formsController.deletePrayerUpload);
+
 // food pantry
 const foodController = require("../controllers/forms/foodPantryController");
-const {deletePrayerUpload} = require("../controllers/forms/formsController");
 router.get("/newFoodPantryItem", auth, foodController.newFoodPantryItemPage);
 router.post("/store/food", auth, foodController.storeFoodPantryItem);
 router.get("/delete/food/:id", auth, foodController.deleteFoodItem);
@@ -56,5 +56,11 @@ router.get("/newEvent", formsController.newEventPage)
 router.post("/store/event", formsController.storeEvent);
 router.get("/events", cache(2), formsController.eventsPage);
 router.get("/delete/event/:id", formsController.deleteEvent);
+
+const contactFormController = require("../controllers/forms/contactFormController")
+router.get("/newContact", contactFormController.newContactPage);
+router.post("/store/contact", contactFormController.storeContact);
+router.get("/delete/contact/:id", contactFormController.deleteContact);
+router.post("/send/email", contactFormController.sendEmail);
 
 module.exports = router;

@@ -22,7 +22,7 @@ const EventSchedulerSchema = new Schema ({
         required: true
     },
     datePosted:{
-        type: Date,
+        type: String,
         default: new Date()
     },
 })

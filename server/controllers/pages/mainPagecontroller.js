@@ -2,13 +2,15 @@
 const FoodPantryData = require("../models/FoodPantry");
 const EventCalendar = require("../models/Calendar");
 const Prayers = require("../models/Prayers");
+const ContactMethod = require("../models/ContactForm");
 
 const homePage = async (req, res) => {
     const foodItem = await FoodPantryData.find({}).sort({_id: -1});
     const pray = await Prayers.find({}).sort({_id: -1}).limit(4);
+    const contactData = await ContactMethod.find({});
     res.render('index', {
         title: 'home page for the zion church',
-        foodItem, pray
+        foodItem, pray, contactData
     })
 }
 

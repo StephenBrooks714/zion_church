@@ -34,7 +34,7 @@
                                             <div class="modal-body">
                                                 <div>
                                                     <h3>Add Event</h3>
-                                                    <input type="date" class="form-control mb-2" name="eventDate">
+                                                    <input type="datetime-local" class="form-control mb-2" name="eventDate">
                                                     <input type="text" name="eventTitle"
                                                            class="form-control mb-2"
                                                            placeholder="Event Title">
@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                                                <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -72,7 +72,7 @@
                             </h4>
                             <div class="card-body">
                                 <p class="card-text"><%= calendar[i].eventDescription %></p>
-                                <p class="card-footer"><%= calendar[i].eventDate %></p>
+                                <p class="card-footer"><%= calendar[i].eventDate.toLocaleString() %></p>
                             </div>
                         </div>
                     </div>

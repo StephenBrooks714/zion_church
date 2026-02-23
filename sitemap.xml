@@ -40,9 +40,6 @@
     <loc>http://localhost:8080/prayerRequest</loc>
   </url>
   <url>
-    <loc>http://localhost:8080/register</loc>
-  </url>
-  <url>
     <loc>http://localhost:8080/login</loc>
   </url>
   <url>
