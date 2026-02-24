@@ -15,6 +15,7 @@ router.get("/privacyPolicy", cache(2), mainController.privacyPage);
 router.get("/donations", cache(2), mainController.donationsPage);
 router.get("/ministry", cache(2), mainController.ministryPage);
 router.get("/calendar", cache(2), mainController.calendarPage);
+router.get("/members", cache(2), mainController.memberPage)
 
 const galleryController = require("../controllers/Gallery/galleryController");
 router.get("/newGallery", auth, galleryController.newProjectPage)

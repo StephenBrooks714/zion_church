@@ -16,7 +16,7 @@
     <loc>http://localhost:8080/missionAndVision</loc>
   </url>
   <url>
-    <loc>http://localhost:8080/assets/MEMBERSHIP_MANUAL_%28Revised_November%202025%29.pdf</loc>
+    <loc>http://localhost:8080/members</loc>
   </url>
   <url>
     <loc>http://localhost:8080/privacyPolicy</loc>
@@ -34,15 +34,18 @@
     <loc>http://localhost:8080/ministry</loc>
   </url>
   <url>
-    <loc>http://localhost:8080/foodPantry</loc>
+    <loc>http://localhost:8080/login</loc>
+  </url>
+  <url>
+    <loc>http://localhost:8080/donations</loc>
+  </url>
+  <url>
+    <loc>http://localhost:8080/assets/MEMBERSHIP_MANUAL_%28Revised_November%202025%29.pdf</loc>
   </url>
   <url>
     <loc>http://localhost:8080/prayerRequest</loc>
   </url>
   <url>
-    <loc>http://localhost:8080/login</loc>
-  </url>
-  <url>
-    <loc>http://localhost:8080/donations</loc>
+    <loc>http://localhost:8080/foodPantry</loc>
   </url>
 </urlset>

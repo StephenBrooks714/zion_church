@@ -70,6 +70,12 @@ const calendarPage = async (req, res) => {
     })
 }
 
+const memberPage = (req, res) => {
+    res.render('members', {
+        title: 'Member',
+    })
+}
+
 module.exports = {
     homePage,
     calendarPage,
@@ -80,5 +86,6 @@ module.exports = {
     donationsPage,
     aboutPage,
     pastorPage,
-    ministryPage
+    ministryPage,
+    memberPage
 }
