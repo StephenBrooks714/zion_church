@@ -6,7 +6,7 @@ const ContactMethod = require("../models/ContactForm");
 
 const homePage = async (req, res) => {
     const foodItem = await FoodPantryData.find({}).sort({_id: -1});
-    const pray = await Prayers.find({}).sort({_id: -1}).limit(4);
+    const pray = await Prayers.find({}).sort({_id: -1}).limit(3);
     const contactData = await ContactMethod.find({});
     res.render('index', {
         title: 'home page for the zion church',

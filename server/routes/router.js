@@ -20,7 +20,7 @@ router.get("/members", cache(2), mainController.memberPage)
 const galleryController = require("../controllers/Gallery/galleryController");
 router.get("/newGallery", auth, galleryController.newProjectPage)
 router.post("/store/images", galleryController.storeProject)
-router.get("/delete/images", auth, galleryController.deleteProjectInfo)
+router.get("/delete/images/:id", auth, galleryController.deleteProjectInfo)
 router.get("/gallery", galleryController.projectsPage)
 
 const usersController = require("../controllers/users/usersMainController");
