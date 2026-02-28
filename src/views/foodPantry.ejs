@@ -8,7 +8,7 @@
     <div
             class="p-5 text-center bg-image"
             style="
-              background-image: url('https://content.energage.com/company-images/SE89389/SE89389_photo_05_orig.jpg');
+              background-image: url('/assets/food_pantry.png');
               height: 500px;
               "
     ></div>
@@ -41,15 +41,24 @@
                 <img src="/assets/food-pantry-1.png" class="img-fluid" alt="food image">
             </div>
             <div class="col-lg-6 mb-lg-0 mb-4">
-                <h2 class="display-4 mb-2 text-primary fw-bold">Food Pantry @AME</h2>
-                <p class="lead">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus deleniti doloribus eos et, ipsum, neque nesciunt placeat praesentium quos repellendus sed tenetur voluptatum. Dolor exercitationem, optio suscipit tenetur ullam veritatis.
+                <p class="lead mb-2">
+                    Nemo animi soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus
+                    voluptatum, magni
+                    impedit eaque delectus, beatae maxime temporibus maiores quibusdam quasi rem magnam.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet eveniet, maiores nobis obcaecati tenetur ut voluptate! Aliquid error magni non ullam.
                 </p>
+
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-check me-2"></i>Nemo animi soluta ratione</li>
+                    <li><i class="fas fa-check me-2"></i>Beatae maxime temporibus</li>
+                    <li><i class="fas fa-check me-2"></i>Consectetur adipisicing elit</li>
+                </ul>
             </div>
         </div>
         <% if(foodItem != "") { %>
 
             <% for(i=0; i < foodItem.length; i++)  { %>
+                <hr class="my-3">
                 <div class="row align-items-center">
                     <div class="col-md-5 mb-3">
                         <img src="<%= foodItem[i].imageUrl %>" class="img-fluid w-100" alt="<%= foodItem[i].title %>">
@@ -78,7 +87,7 @@
                         <% } %>
                     </div>
                 </div>
-                <hr class="my-3">
+
             <% } %>
         <% } else { %>
             <p class="lead fw-bold">There are no events posted yet.</p>

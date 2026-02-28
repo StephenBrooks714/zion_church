@@ -1,6 +1,6 @@
 const ContactInfo = require("../models/ContactForm");
 const nodemailer = require('nodemailer');
-require("dotenv").config()
+require("dotenv").config();
 
 const newContactPage = async (req, res) => {
     const contactUser = await ContactInfo.find().sort({ _id: -1 }).limit(10);

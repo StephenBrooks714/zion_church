@@ -6,6 +6,9 @@ const CalendarEvents = require("../models/Calendar");
 const RequestPrayers = require("../models/PrayerRequest");
 const OurPrayers = require("../models/Prayers");
 
+const PushNotifications = require("node-pushnotifications");
+require("dotenv").config();
+
 const newEventPage = (req, res) => {
     res.render("newEvent", {
         title: "New event of AME"
@@ -43,8 +46,36 @@ const prayerRequestPage = async(req, res) => {
     })
 }
 const storePrayerRequest = async (req, res) => {
+    const subscription = req.body;
+    console.log(subscription);
+    const settings = {
+        web: {
+            vapidDetails: {
+                subject: "mailto:newburghdpastor@aol.com", // REPLACE_WITH_YOUR_EMAIL
+                publicKey: process.env.publicVapidKey,
+                privateKey: process.env.privateVapidKey,
+            },
+            gcmAPIKey: "gcmkey",
+            TTL: 2419200,
+            contentEncoding: "aes128gcm",
+            headers: {},
+        },
+        isAlwaysUseFCM: false,
+    };
+
+    // Send 201 - resource created
+    const push = new PushNotifications(settings);
+    const payload = { title: "Notification from Website" };
+    push.send(subscription, payload, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(result);
+        }
+    });
+
     await RequestPrayers.create({
-        ...req.body
+        ...req.body,
     })
     res.redirect('/prayerRequest')
 }

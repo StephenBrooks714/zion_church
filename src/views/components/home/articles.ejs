@@ -1,13 +1,34 @@
 <% if(foodItem != "") { %>
-<article class="row justify-content-lg-start justify-content-center text-lg-start mb-5 pb-2">
+<article class="row justify-content-lg-start flex-row-reverse justify-content-center text-lg-start mb-5 pb-2">
     <% for(i=0; i < foodItem.length; i++) {%>
-        <div class="col-lg-4 mb-lg-0 mb-3">
-            <p class="h5 mb-2 text-info fw-bold"><%= foodItem[i].title %></p>
-            <hr class="w-25">
-            <p>
-                <%= foodItem[i].description.substring(0, 210) %> . . .
-            </p>
-            <a href="/foodPantry" class="btn btn-outline-primary rounded-pill">Read More</a>
+        <div class="col-lg-5 mb-lg-0 mb-3">
+                <img src="<%= foodItem[i].imageUrl %>" class="img-fluid" alt="<%= foodItem[i].title %>">
+        </div>
+        <div class="col-lg-7 mb-lg-0 mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="h5 mb-2 text-info fw-bold"><%= foodItem[i].title %></p>
+                    <hr class="w-25">
+                    <p>
+                        <%= foodItem[i].description %>
+                    </p>
+                    <address>
+                        <%= foodItem[i].location %>
+                    </address>
+                    <a href="/foodPantry" class="btn btn-outline-primary rounded-pill">Visit Food Pantry</a>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <strong>Contact Person:</strong> <%= foodItem[i].contactName %>
+                    </p>
+                    <email>
+                        <strong>Contact Email:</strong> <%= foodItem[i].contactEmail %>
+                    </email>
+                    <p>
+                        Starting on <%= foodItem[i].startDate %>, from <%= foodItem[i].startTime %> to <%= foodItem[i].endTime %>
+                    </p>
+                </div>
+            </div>
         </div>
     <% } %>
 </article>
