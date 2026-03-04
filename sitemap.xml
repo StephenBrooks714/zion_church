@@ -22,10 +22,10 @@
     <loc>http://localhost:8080/privacyPolicy</loc>
   </url>
   <url>
-    <loc>http://localhost:8080/gallery</loc>
+    <loc>http://localhost:8080/calendar</loc>
   </url>
   <url>
-    <loc>http://localhost:8080/calendar</loc>
+    <loc>http://localhost:8080/gallery</loc>
   </url>
   <url>
     <loc>http://localhost:8080/inHimWeTrust</loc>
