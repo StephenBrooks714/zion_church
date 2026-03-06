@@ -8,37 +8,51 @@
 
 <main>
     <section class="container" style="margin-top: 140px; margin-bottom: 70px;">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 mb-4">
-                <h1>AME Events Page</h1>
-            </div>
-            <% if(events != "") { %>
-
-                <% for(i=0; i < events.length; i++)  { %>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <h4>
-                                <%= events[i].title %>
-                            </h4>
-                            <p>
-                                Beginning @ <%= events[i].time %> on <%= events[i].day %>, <br>
-                                from <%= events[i].date %> to <%= events[i].date2 %>
-                            <address>
-                                <%= events[i].location %>
-                            </address>
-                            </p>
-                        </div>
-                        <div class="col-md-8 mb-3">
-                            <p class="lead">
-                                <%= events[i].description %>
-                            </p>
-                            <a href="/delete/event/<%= events[i]._id %>" class="btn btn-sm btn-warning">delete event</a>
-                        </div>
-                    </div>
+        <div class="row justify-content-center mb-6 align-items-center">
+            <div class="col-lg-7 mb-lg-0 mb-3">
+                <h1 class="display-2">Zion Church Calendar</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda dolore dolorem error exercitationem explicabo hic in, incidunt inventore ipsa laboriosam minima nisi omnis pariatur quod repellendus, sit tempora vero.
+                </p>
+                <% if(loggedIn) { %>
+                    <a href="/newEvent" class="btn btn-primary rounded-pill">Create Event</a>
                 <% } %>
-            <% } else { %>
-                <p class="lead fw-bold">There are no events posted yet.</p>
+            </div>
+            <div class="col-md-5 mb-lg-0 mb-3">
+                <img src="/assets/calendar.png" class="img-fluid" alt="calendar image">
+            </div>
+        </div>
+        <% if(events != "") { %>
+
+            <% for(i=0; i < events.length; i++)  { %>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h4>
+                            <%= events[i].title %>
+                        </h4>
+                        <p>
+                            Beginning @ <%= events[i].time %> on <%= events[i].day %>, <br>
+                            from <%= events[i].date %> to <%= events[i].date2 %>
+                        <address>
+                            <%= events[i].location %>
+                        </address>
+                        </p>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <p class="lead">
+                            <%= events[i].description %>
+                        </p>
+                        <% if(loggedIn) { %>
+                            <a href="/delete/event/<%= events[i]._id %>" class="btn btn-sm btn-rounded btn-warning">delete event</a>
+                        <% } %>
+                    </div>
+                </div>
             <% } %>
+        <% } else { %>
+            <p class="lead fw-bold text-center">There are no events posted yet.</p>
+        <% } %>
+        <div class="col-12 mt-4">
+            <%- include("components/socialmedia-share") -%>
         </div>
     </section>
 </main>
