@@ -15,14 +15,23 @@
             <!-- show photos uploaded to uploads directory -->
             <div class="col-lg-12">
                 <div class="row justify-content-center">
-                    <% photosList.forEach((photo) => { %>
-                        <div class="col-md-4 mb-3">
+                    <% if(photosList != "") { %>
+                        <% photosList.forEach((photo) => { %>
+                            <div class="col-md-4 mb-3">
+                                <% if(loggedIn) { %>
+                                    <a href="/delete/images/:id">delete</a>
+                                <% } %>
+                                <img src="<%= photo.file %>" class="img-fluid" alt="Project">
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <p>No photos uploaded, come back later to check.</p>
+                        <div>
                             <% if(loggedIn) { %>
-                                <a href="/deleteProject/:id">delete</a>
+                                <a href="/newGallery" class="btn btn-primary rounded-pill">Upload Photos</a>
                             <% } %>
-                            <img src="<%= photo.file %>" class="img-fluid" alt="Project">
                         </div>
-                    <% }) %>
+                    <% } %>
                 </div>
             </div>
         </div>

@@ -5,8 +5,8 @@ const EventAction = require("../models/Events");
 const CalendarEvents = require("../models/Calendar");
 const RequestPrayers = require("../models/PrayerRequest");
 const OurPrayers = require("../models/Prayers");
-
-const PushNotifications = require("node-pushnotifications");
+const nodemailer = require('nodemailer');
+const ContactInfo = require("../models/ContactForm");
 require("dotenv").config();
 
 const newEventPage = (req, res) => {
@@ -46,39 +46,12 @@ const prayerRequestPage = async(req, res) => {
     })
 }
 const storePrayerRequest = async (req, res) => {
-    const subscription = req.body;
-    console.log(subscription);
-    const settings = {
-        web: {
-            vapidDetails: {
-                subject: "mailto:newburghdpastor@aol.com", // REPLACE_WITH_YOUR_EMAIL
-                publicKey: process.env.publicVapidKey,
-                privateKey: process.env.privateVapidKey,
-            },
-            gcmAPIKey: "gcmkey",
-            TTL: 2419200,
-            contentEncoding: "aes128gcm",
-            headers: {},
-        },
-        isAlwaysUseFCM: false,
-    };
-
-    // Send 201 - resource created
-    const push = new PushNotifications(settings);
-    const payload = { title: "Notification from Website" };
-    push.send(subscription, payload, (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
-        }
-    });
-
     await RequestPrayers.create({
         ...req.body,
     })
     res.redirect('/prayerRequest')
 }
+
 const deletePrayerRequest = async (req, res) => {
     await RequestPrayers.findByIdAndDelete(req.params.id)
     res.redirect('/prayerRequest')

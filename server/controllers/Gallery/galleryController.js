@@ -18,7 +18,7 @@ const storeProject = (req, res) => {
     const files = Array.isArray(imageFiles) ? imageFiles : [imageFiles];
 
     const uploadPromises = files.map(file => {
-        const uploadPath = path.join(__dirname, '../', '../', '../', 'src/public/uploads', file.name);
+        const uploadPath = path.join(__dirname, '../', '../', '../', 'src/public/gallery', file.name);
         return file.mv(uploadPath);
     });
 
@@ -32,19 +32,19 @@ const storeProject = (req, res) => {
 
 // use shift javascript method to delete the first photo
 const deleteProjectInfo = (req, res) => {
-    const photos = path.join(__dirname, '..', '..', '..', 'src/public/uploads/');
+    const photos = path.join(__dirname, '..', '..', '..', 'src/public/gallery/');
     const photosArray = fs.readdirSync(photos);
     const photoToDelete = photosArray.shift();
-    fs.unlinkSync(path.join(__dirname, '..', '..', '..', 'src/public/uploads', photoToDelete));
+    fs.unlinkSync(path.join(__dirname, '..', '..', '..', 'src/public/gallery', photoToDelete));
     res.redirect('/gallery');
 }
 
 const projectsPage = async (req, res) => {
     // get images from uploads directory and show them onto page
-    const photos = path.join(__dirname, '..', '..', '..', 'src/public/uploads/');
+    const photos = path.join(__dirname, '..', '..', '..', 'src/public/gallery/');
     const photosArray = fs.readdirSync(photos);
     const photosList = photosArray.map((photo) => ({
-        file: `/uploads/${photo}`
+        file: `/gallery/${photo}`
     }));
 
     res.render('gallery', {
