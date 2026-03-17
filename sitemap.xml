@@ -22,10 +22,19 @@
     <loc>http://localhost:8080/privacyPolicy</loc>
   </url>
   <url>
+    <loc>http://localhost:8080/events</loc>
+  </url>
+  <url>
     <loc>http://localhost:8080/inHimWeTrust</loc>
   </url>
   <url>
     <loc>http://localhost:8080/ministry</loc>
+  </url>
+  <url>
+    <loc>http://localhost:8080/foodPantry</loc>
+  </url>
+  <url>
+    <loc>http://localhost:8080/prayerRequest</loc>
   </url>
   <url>
     <loc>http://localhost:8080/login</loc>
@@ -37,18 +46,9 @@
     <loc>http://localhost:8080/assets/MEMBERSHIP_MANUAL_%28Revised_November%202025%29.pdf</loc>
   </url>
   <url>
-    <loc>http://localhost:8080/events</loc>
+    <loc>http://localhost:8080/calendar</loc>
   </url>
   <url>
     <loc>http://localhost:8080/gallery/</loc>
-  </url>
-  <url>
-    <loc>http://localhost:8080/foodPantry</loc>
-  </url>
-  <url>
-    <loc>http://localhost:8080/prayerRequest</loc>
-  </url>
-  <url>
-    <loc>http://localhost:8080/calendar</loc>
   </url>
 </urlset>

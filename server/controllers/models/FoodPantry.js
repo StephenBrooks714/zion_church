@@ -13,9 +13,6 @@ const FoodPantrySchema = new Schema ({
     endDate: String,
     location: String,
     description: String,
-    url: {
-        type: String,
-    },
     imageUrl: {
         type: String,
     },

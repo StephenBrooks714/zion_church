@@ -1,8 +1,9 @@
 <% if(foodItem != "") { %>
-<article class="row justify-content-lg-start flex-row-reverse justify-content-center text-lg-start mb-5 pb-2">
     <% for(i=0; i < foodItem.length; i++) {%>
+<article class="row justify-content-lg-start flex-row-reverse justify-content-center text-lg-start mb-5 pb-2">
+
         <div class="col-lg-5 mb-lg-0 mb-3">
-                <img src="<%= foodItem[i].imageUrl %>" class="img-fluid" alt="<%= foodItem[i].title %>">
+                <img src="<%= foodItem[i].imageUrl %>" class="img-fluid h-100 w-100" alt="<%= foodItem[i].title %>">
         </div>
         <div class="col-lg-7 mb-lg-0 mb-3">
             <div class="row">
@@ -30,7 +31,8 @@
                 </div>
             </div>
         </div>
-    <% } %>
+
 </article>
+    <% } %>
 <% } %>
 <div id="about"></div>
