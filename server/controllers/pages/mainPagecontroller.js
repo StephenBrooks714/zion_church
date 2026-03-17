@@ -1,7 +1,7 @@
 //
 const FoodPantryData = require("../models/FoodPantry");
 const EventCalendar = require("../models/Calendar");
-const Prayers = require("../models/Prayers");
+const Prayers = require("../models/PrayerRequest");
 const ContactMethod = require("../models/ContactForm");
 
 const homePage = async (req, res) => {
