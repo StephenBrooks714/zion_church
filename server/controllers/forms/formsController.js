@@ -5,9 +5,6 @@ const EventAction = require("../models/Events");
 const CalendarEvents = require("../models/Calendar");
 const RequestPrayers = require("../models/PrayerRequest");
 const OurPrayers = require("../models/Prayers");
-const nodemailer = require('nodemailer');
-const ContactInfo = require("../models/ContactForm");
-require("dotenv").config();
 
 const newEventPage = (req, res) => {
     res.render("newEvent", {

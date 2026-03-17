@@ -17,11 +17,16 @@
                 <div class="row justify-content-center">
                     <% if(photosList != "") { %>
                         <% photosList.forEach((photo) => { %>
-                            <div class="col-md-4 mb-3">
-                                <% if(loggedIn) { %>
-                                    <a href="/delete/images/:id">delete</a>
-                                <% } %>
-                                <img src="<%= photo.file %>" class="img-fluid" alt="Project">
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <p class="mb-2">
+                                    <% if(loggedIn) { %>
+                                        <a href="/delete/images/:id" class="btn p-1 btn-warning">delete</a>
+                                    <% } %>
+                                    <a href="<%= photo.file %>" class="btn btn-info p-1" download="<%= photo.file %>">
+                                        Download Image
+                                    </a> <br>
+                                </p>
+                                    <img src="<%= photo.file %>" class="img-fluid" alt="Project">
                             </div>
                         <% }) %>
                     <% } else { %>
