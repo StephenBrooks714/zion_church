@@ -16,21 +16,36 @@
                     <strong>Bible Study</strong> 12pm & 7pm
                 </li>
                 <% if(pray != "") { %>
+                    <% for(i=0; i<pray.length; i++) { %>
+                        <li>
+                            Prayer request needed, <span class="fw-bold lead tetx-info"><%= pray[i].theirName %></span>
+                            <ul>
+                                <li>
+                                    <a href="/prayerRequest" class="text-decoration-underline fw-bold">
+                                        See All Prayer Request
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/newPrayer" class="text-decoration-underline fw-bold">
+                                        Upload Prayer Request
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    <% } %>
+                <% } else { %>
                     <li>
-                        <a href="/prayerRequest" class="text-decoration-underline fw-bold">
-                            Prayer Request Needed
+                        <a class="text-decoration-underline fw-bold text-primary"
+                           href="/prayerRequest">
+                            Prayer Request Upload
                         </a>
                     </li>
                 <% } %>
             </ul>
-            <a class="btn btn-outline-primary me-2 rounded-pill"
+            <a class="btn btn-outline-dark me-2 rounded-pill"
                href="assets/MEMBERSHIP_MANUAL_(Revised_November 2025).pdf"
                target="_blank">
-                Membership
-            </a>
-            <a class="btn btn-info me-2 rounded-pill"
-               href="/prayerRequest">
-                Prayer Request
+                Membership Manual <i class="far h6 fa-file-pdf"></i>
             </a>
         </div>
     </div>

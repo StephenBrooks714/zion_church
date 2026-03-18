@@ -50,8 +50,8 @@
                 <% for(i=0; i < contactData.length; i++) { %>
                     <p class="mb-3">
                         Current person receiving form(s) is: <br>
-                        <%= contactData[i].adminName %> <a href="/delete/contact/<%= contactData[i]._id %>" class="text-warning">delete</a> <br>
-                        <%= contactData[i].email %>
+                        <%= contactData[i].email %> <br>
+                        Delete <a href="/delete/contact/<%= contactData[i]._id %>" class="text-warning btn-floating"><i class="fas fa-trash-can"></i></a> <br>
                     </p>
                 <% } %>
             <% } %>
