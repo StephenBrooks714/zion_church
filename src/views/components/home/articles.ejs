@@ -3,7 +3,7 @@
 <article class="row justify-content-lg-start flex-row-reverse justify-content-center text-lg-start mb-5 pb-2">
 
         <div class="col-lg-5 mb-lg-0 mb-3">
-                <img src="<%= foodItem[i].imageUrl %>" class="img-fluid h-100 w-100" alt="<%= foodItem[i].title %>">
+                <img src="/assets/church_image.png" class="img-fluid h-100 w-100" alt="<%= foodItem[i].title %>">
         </div>
         <div class="col-lg-7 mb-lg-0 mb-3">
             <div class="row">
@@ -17,6 +17,9 @@
                         <%= foodItem[i].location %>
                     </address>
                     <a href="/foodPantry" class="btn btn-outline-primary rounded-pill">Visit Food Pantry</a>
+                    <% if(loggedIn) { %>
+                        <a href="/delete/food/<%= foodItem[i]._id %>" class="btn btn-outline-warning rounded-pill">Delete</a>
+                    <% } %>
                 </div>
                 <div class="col-md-6">
                     <p>

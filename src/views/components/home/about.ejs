@@ -13,12 +13,18 @@
                     <strong>Sunday Service</strong> at 11am
                 </li>
                 <li>
-                    <strong>Bible Study</strong> 12pm & 7pm
+                    <strong>Wednesday Bible Study</strong> 12pm & 7pm
+                </li>
+                <li>
+                    <phone>
+                        <a href="tel:425-436-6301" class="text-decoration-underline fw-bold">425-436-6301</a>
+                    </phone> Access Code <code>522286#</code>
                 </li>
                 <% if(pray != "") { %>
                     <% for(i=0; i<pray.length; i++) { %>
                         <li>
-                            Prayer request needed, <span class="fw-bold lead tetx-info"><%= pray[i].theirName %></span>
+                            Prayer request needed
+
                             <ul>
                                 <li>
                                     <a href="/prayerRequest" class="text-decoration-underline fw-bold">
