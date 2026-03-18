@@ -15,7 +15,8 @@ router.get("/privacyPolicy", cache(2), mainController.privacyPage);
 router.get("/donations", cache(2), mainController.donationsPage);
 router.get("/ministry", cache(2), mainController.ministryPage);
 router.get("/calendar", cache(2), mainController.calendarPage);
-router.get("/members", cache(2), mainController.memberPage)
+router.get("/members", cache(2), mainController.memberPage);
+router.get("/healthyLife", cache(2), mainController.healthyLifePage);
 
 const galleryController = require("../controllers/Gallery/galleryController");
 router.get("/newGallery", auth, galleryController.newProjectPage)
@@ -59,6 +60,7 @@ router.get("/events", cache(2), formsController.eventsPage);
 router.get("/delete/event/:id", formsController.deleteEvent);
 
 const contactFormController = require("../controllers/forms/contactFormController")
+const {healthyLifePage} = require("../controllers/pages/mainPagecontroller");
 router.get("/newContact", contactFormController.newContactPage);
 router.post("/store/contact", contactFormController.storeContact);
 router.get("/delete/contact/:id", contactFormController.deleteContact);
