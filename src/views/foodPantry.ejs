@@ -28,7 +28,7 @@
                     AME Zion Church <br />
                     <span class="text-primary">Food Pantry</span>
                 </h1>
-
+                <a href="/newFoodPantryItem" class="btn btn-lg btn-primary">New Item Upload</a>
             </div>
         </div>
     </div>
@@ -52,6 +52,13 @@
                     <li><i class="fas fa-check me-2"></i>Distributed by AME Zion Church of Newburgh</li>
                     <li><i class="fas fa-check me-2"></i>Services for adults and young children</li>
                     <li><i class="fas fa-check me-2"></i>Join us for spiritual food</li>
+                    <% if(loggedIn) { %>
+                        <li>
+                            <a href="/newFoodPantryItem">
+                                <i class="fas fa-check me-2"></i>Upload Food Item(s)
+                            </a>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
