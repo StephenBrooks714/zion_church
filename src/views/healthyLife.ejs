@@ -1,16 +1,45 @@
 <!doctype html>
 <html lang="en">
 <%- include('layouts/head') -%>
+<style>
+    #hide-2 {
+        display: none;
+    }
+    @media(max-width: 992px) {
+        #hide-2 {
+            display: block;
+        }
+        #hide-1 {
+            display: none;
+        }
+    }
+</style>
 <body>
-<header>
+<header class="mb-9">
     <%- include('layouts/navBar') -%>
 </header>
 
 <main>
-    <section class="container">
-        <div class="row justify-content-center align-items-center" style="height: 100vh;">
-            <div class="col-lg-12 text-center">
-                <h1>Healthy Life Page</h1>
+    <section class="container my-5 py-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-7 mb-4 text-lg-start">
+                <h1 class="text-danger mb-2">Ch<i class="fas fa-heart"></i><i class="fas fa-heart"></i>se Healthy Life</h1>
+                <hr class="my-3 w-25">
+                <h3 class="display-1 fw-bold mb-4">Dr. Valentina Stubbs</h3>
+                <p class="lead text-info mb-3">
+                    Join us for a discussion with Dr. Stubbs as she explores the topic of depression.
+                </p>
+                <p class="lead text-info mb-3">
+                    Friday, March 13, 2026 @ 12:00PM. AME Zion Church of Newburgh <br>
+                    <address>109 Washington Street <br> Newburgh, NY 12550</address>
+                </p>
+                <p class="text-muted">
+                    For More information, please call me at 845-569-8114
+                </p>
+            </div>
+            <div class="col-lg-5 mb-4">
+                <img src="/assets/valentina_stubbs_full.png" id="hide-1" class="img-fluid w-100" alt="valentina_stubbs" />
+                <img src="/assets/valentine_stubbs_short.png" id="hide-2" class="img-fluid w-100" alt="valentina_stubbs" />
             </div>
         </div>
     </section>
