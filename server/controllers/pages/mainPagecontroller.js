@@ -76,13 +76,6 @@ const memberPage = (req, res) => {
     })
 }
 
-// healthy life
-const healthyLifePage = (req, res) => {
-    res.render('healthyLife', {
-        title: 'Healthy Life Membership and stories',
-    })
-}
-
 module.exports = {
     homePage,
     calendarPage,
@@ -94,6 +87,5 @@ module.exports = {
     aboutPage,
     pastorPage,
     ministryPage,
-    memberPage,
-    healthyLifePage
+    memberPage
 }

@@ -23,9 +23,19 @@
     <section class="container my-5 py-5">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-7 mb-4 text-lg-start">
+                <div class="col-12 mb-4 mt-5">
+                    <% if(loggedIn) { %>
+                        <a href="/newHealthyLife" class="btn btn-outline-primary me-2 rounded-pill">Have A New Post To Add ?</a>
+                    <% } %>
+                    <% if(health != "") { %>
+                        <a href="#healthPost" class="btn btn-outline-dark me-2 rounded-pill">View My Post</a>
+                    <% } %>
+                </div>
                 <h1 class="text-danger mb-2">Ch<i class="fas me-1 fa-heart"></i><i class="fas me-1 fa-heart"></i>se Healthy Life</h1>
                 <hr class="my-3 w-25">
-                <h3 class="display-1 fw-bold mb-4">Dr. Valentina Stubbs</h3>
+                <h3 class="display-1 fw-bold mb-4">Dr. Valentina Stubbs
+
+                </h3>
                 <p class="lead text-info mb-3">
                     Join us for a discussion with Dr. Stubbs as she explores the topic of depression.
                 </p>
@@ -100,6 +110,30 @@
             <div class="col-lg-5 mb-4">
                 <img src="/assets/valentina_stubbs_full.png" id="hide-1" class="img-fluid w-100" alt="valentina_stubbs" />
                 <img src="/assets/valentine_stubbs_short.png" id="hide-2" class="img-fluid w-100" alt="valentina_stubbs" />
+            </div>
+            <div id="healthPost" class="col-12 mt-3">
+                <div class="row justify-content-center align-items-center mx-auto tetx-center py-2 me-1">
+                    <% for(i=0; i < health.length; i++) { %>
+                        <a href="/singleArticle/<%= health[i]._id %>">
+                            <div class="col-lg-3 col-md-6 p-3">
+                                <div class="card p-2">
+                                    <div class="card-body">
+                                        <p class="h6">
+                                            <%= health[i].summary %>
+                                        </p>
+                                        <p class="h3 fw-bold text-info text-decoration-underline"><%= health[i].title %></p>
+                                        <p>
+                                            From: <%= health[i].date %> at <%= health[i].time %>, To <%= health[i].date2 %> at <%= health[i].time2 %>
+                                        </p>
+                                        <p>
+                                            <a href="/delete/healthyData/<%= health[i]._id %>" class="btn btn-warning-outline rounded-pill">Delete This</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
+                </div>
             </div>
         </div>
     </section>

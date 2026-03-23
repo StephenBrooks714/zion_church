@@ -54,4 +54,7 @@
   <url>
     <loc>http://localhost:8080/gallery/</loc>
   </url>
+  <url>
+    <loc>http://localhost:8080/singleArticle/69c175584a4da32af1607614</loc>
+  </url>
 </urlset>
