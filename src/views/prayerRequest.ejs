@@ -8,7 +8,7 @@
         no-repeat center center fixed;
         -webkit-background-size: cover;
         background-size: cover;
-        height: 60vh;
+        height: 45vh;
     }
 </style>
 <body>
@@ -16,7 +16,7 @@
     <%- include('layouts/navBar') -%>
     <section class="container">
         <div class="row justify-content-center text-white align-items-center"
-             style="height: 70vh;">
+             style="height: 50vh;">
             <div class="col-lg-12 text-center">
                 <h1 class="text-info display-2 mb-3">Prayer Request</h1>
                 <!-- Button trigger modal -->
@@ -45,9 +45,9 @@
                                         <div class="col-md-6 mb-lg-0 mb-4">
                                             <!-- Email input -->
                                             <div class="form-outline mb-4" data-mdb-input-init>
-                                                <input type="email" id="form4Example2" name="email" required class="form-control" />
+                                                <input type="email" id="form4Example2" name="email" class="form-control" />
                                                 <label class="form-label" for="form4Example2"
-                                                >Your Email</label
+                                                >Your Email (optional)</label
                                                 >
                                             </div>
                                         </div>
@@ -116,7 +116,9 @@
                             </h4>
                             <%= prayers[i].details %>
                             <br>
-                            Contact Requestor At: <email><a href="mailto:<%= prayers[i].email %>"><%= prayers[i].email %></a></email>
+                            <% if(prayers[i].email != "") { %>
+                                Contact Requestor At: <email><a href="mailto:<%= prayers[i].email %>"><%= prayers[i].email %></a></email>
+                            <% } %>
 
                             <i>Posted On:</i> <%= prayers[i].datePosted.toString() %>
                             <!-- Button trigger modal -->

@@ -20,33 +20,30 @@
                         <a href="tel:425-436-6301" class="text-decoration-underline fw-bold">425-436-6301</a>
                     </phone> Access Code <code>522286#</code>
                 </li>
-                <% if(pray != "") { %>
-                    <% for(i=0; i<pray.length; i++) { %>
-                        <li>
-                            Prayer request needed
+                <li>
+                    Do You Have A Prayer Request?
 
-                            <ul>
+                    <ul>
+                        <% if(pray != "") { %>
+                            <% for(i=0; i<pray.length; i++) { %>
                                 <li>
                                     <a href="/prayerRequest" class="text-decoration-underline fw-bold">
-                                        See All Prayer Request
+                                        New Prayer Request!!!
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="/newPrayer" class="text-decoration-underline fw-bold">
-                                        Upload Prayer Request
-                                    </a>
-                                </li>
-                            </ul>
+                            <% } %>
+                        <% } else { %>
+                            <li>
+                                No Recent Prayer Request
+                            </li>
+                        <% } %>
+                        <li>
+                            <a href="/newPrayer" class="text-decoration-underline fw-bold">
+                                Upload Prayer Request
+                            </a>
                         </li>
-                    <% } %>
-                <% } else { %>
-                    <li>
-                        <a class="text-decoration-underline fw-bold text-primary"
-                           href="/prayerRequest">
-                            Prayer Request Upload
-                        </a>
-                    </li>
-                <% } %>
+                    </ul>
+                </li>
             </ul>
             <a class="btn btn-outline-dark me-2 rounded-pill"
                href="/members">

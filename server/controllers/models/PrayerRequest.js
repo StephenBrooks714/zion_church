@@ -6,7 +6,10 @@ const PrayerRequestSchema = new Schema ({
         type: String,
         required: true
     },
-    email: String,
+    email: {
+        type: String,
+        required: false
+    },
     theirName: String,
     requestType: String,
     details: String,

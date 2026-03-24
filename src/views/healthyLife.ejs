@@ -125,9 +125,11 @@
                                         <p>
                                             From: <%= health[i].date %> at <%= health[i].time %>, To <%= health[i].date2 %> at <%= health[i].time2 %>
                                         </p>
-                                        <p>
-                                            <a href="/delete/healthyData/<%= health[i]._id %>" class="btn btn-warning-outline rounded-pill">Delete This</a>
-                                        </p>
+                                        <% if(loggedIn) { %>
+                                            <p>
+                                                <a href="/delete/healthyData/<%= health[i]._id %>" class="btn btn-warning rounded-pill">Delete This</a>
+                                            </p>
+                                        <% } %>
                                     </div>
                                 </div>
                             </div>

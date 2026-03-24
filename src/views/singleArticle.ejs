@@ -7,24 +7,62 @@
 </header>
 
 <main>
-    <section class="container my-5 py-5">
+    <section class="container my-5 py-3">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-12">
-                <p class="lead"><%= post.summary %></p>
-                <h1 class="mt-0 text-primary fw-bold"><%= post.title %></h1>
-                <p>
-                    <strong>From:</strong> <%= post.date %> & <%= post.time %>, <strong>TO: </strong>
-                    <%= post.date2 %> & <%= post.time2 %>
-                </p>
+               <div class="row mb-3">
+                   <div class="col-md-6 text-lg-start text-center mb-3">
+                       <div>
+                           <p class="lead"><%= post.summary %></p>
+                           <h1 class="mt-0 text-primary fw-bold"><%= post.title %>
+                               <% if(loggedIn) { %>
+                                   <a href="/delete/healthyData/<%= post._id %>" class="btn btn-floating text-white bg-warning">
+                                       <i class="far fa-trash-can"></i>
+                                   </a>
+                               <% } %>
+                           </h1>
+                           <p>
+                               <strong>From:</strong> <%= post.date %> & <%= post.time %>, <strong>TO: </strong>
+                               <%= post.date2 %> & <%= post.time2 %>
+                           </p>
+                       </div>
+                   </div>
+
+                   <div class="col-md-6 text-lg-end text-center mb-3">
+                       <nav aria-label="breadcrumb">
+                           <ol class="breadcrumb">
+                               <li class="breadcrumb-item"><a href="/">Home</a></li>
+                               <li class="breadcrumb-item"><a href="/healthyLife">All Posts</a></li>
+                               <li class="breadcrumb-item active" aria-current="page"><%= post.title %></li>
+                           </ol>
+                       </nav>
+                       <% if(post.additionalHost && post.guest != "") { %>
+                       <div>
+                           <p class="lead">Our Host(s): <%= post.additionalHost %></p>
+                           <p>Our Guest: <%= post.guest %></p>
+                       </div>
+                       <% } %>
+                   </div>
+
+               </div>
                 <p class="lead">
                     <%= post.body %>
                 </p>
                 <p class="lead">
-                    It's happening on <%= post.day %>, & also <%= post.comments %>
+                    It's happening on <%= post.day %> at <%= post.location %>, & also <%= post.comments %>
                 </p>
                 <p class="lead">
                     <%= post.description %>
                 </p>
+                <% if(post.payUrl != "") { %>
+                    <a href="<%= post.payUrl %>" class="btn btn-primary rounded-pill me-2">Get Tickets</a>
+                <% } %>
+                <% if(post.meetingUrl != "") { %>
+                    <a href="<%= post.meetingUrl %>" class="btn btn-info rounded-pill me-2">Attend Now</a>
+                <% } %>
+            </div>
+            <div class="col-12 mt-5 pt-2">
+                <%- include("components/socialmedia-share") -%>
             </div>
         </div>
     </section>
